@@ -1,0 +1,121 @@
+@import '../../../app.scss';
+
+$link-hover-color: rgba(0, 0, 0, .6);
+$link-color-transition: all .3s;
+
+.fixed-header {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  padding: 15px 0;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+}
+.header {
+  padding: 30px 0;
+  & a:hover {
+    color: $link-hover-color;
+    transition: $link-color-transition;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & img {
+    margin-bottom: 10px;
+  }
+  & span {
+    text-align: center;
+    max-width: 180px;
+  }
+}
+.contacts {
+  text-align: center;
+  position: relative;
+  &::before {
+    position: absolute;
+    content: '';
+    background-image: url('../../images/phone-icon.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    left: -20px;
+    top: 15px;
+  }
+  &__phone {
+    font-size: 19px;
+    margin-bottom: 10px;
+  }
+  &__email {
+    font-size: 16px;
+  }
+}
+
+.cart {
+  text-align: center;
+  &__top {
+    margin-bottom: 15px;
+    & span {
+      font-size: 20px;
+    }
+  }
+  &__img {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+  }
+  &__btn {
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: $accent-color;
+    &:hover {
+      opacity: .9;
+    }
+  }
+}
+
+.header__bottom-list {
+  list-style: none;
+  padding-left: 0;
+}
+.header__list-link {
+  text-transform: uppercase;
+  font-size: 15px;
+  padding: 20px 10px 10px;
+  font-weight: 500;
+
+  &:hover {
+    color: $link-hover-color;
+    transition: .2s all;
+    border-bottom: 1.5px solid #333;
+  }
+}
+
+.header__bottom {
+  
+  &-input {
+    width: 200px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-right: 10px;
+  }
+  &-button {
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 13px;
+    cursor: pointer;
+    background-color: $accent-color;
+    &:hover {
+      opacity: .9;
+    }
+  }
+}

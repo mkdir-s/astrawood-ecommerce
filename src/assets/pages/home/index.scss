@@ -1,0 +1,23 @@
+@import '../../../app.scss';
+
+.main {
+  padding-top: 40px;
+  &__title {
+    font-size: 20px;
+    color: $accent-color;
+    font-weight: 500;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #333;
+    margin-bottom: 10px;
+  }
+  &__descr {
+    font-size: 17px;
+    margin-bottom: 40px;
+  }
+  &-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 30px;
+  }
+}

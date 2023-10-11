@@ -1,0 +1,51 @@
+@import '../../../app.scss';
+
+$link-hover-color: rgba(0, 0, 0, .6);
+$link-color-transition: all .3s;
+
+.footer {
+  padding: 40px 0;
+  margin-top: 40px;
+  background-color: #eee;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  & a:hover {
+    color: $link-hover-color;
+    transition: $link-color-transition;
+  }
+}
+.footer-nav {
+  border-bottom: 2px solid $accent-color;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 40px;
+    &-link {
+      font-size: 17px;
+      font-weight: 500;
+    }
+  }
+}
+
+.footer-bottom {
+  &__left-descr {
+    max-width: 480px;
+    font-size: 13px;
+  }
+  &__right-contacts {
+    margin-bottom: 15px;
+    &::before {
+      left: 20%;
+    }
+  }
+  &__copy {
+    font-size: 13px;
+  }
+}
