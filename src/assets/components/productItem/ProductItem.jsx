@@ -1,19 +1,28 @@
+import { useContext, useState } from 'react';
 import './index.scss';
 import {Link} from 'react-router-dom';
 import { BsPlus, BsEyeFill } from 'react-icons/bs';
+// import cart context
+import { CartContext } from '../../contexts/CartContext';
 
 function ProductItem({product}) {
-  const {id, image, title} = product;
+  const { addToCart, isAdded } = useContext(CartContext);
+  const {id, image, title, price} = product;
+
   return (
     <div className="item">
       {/* item content */}
-      <Link to='/'><img className='item__img' src={image} alt="категория" /></Link>
-      <Link to='/' className="item__title">{title}</Link>
+      <Link to={`/product/${id}`}><img className='item__img' src={image} alt="категория" /></Link>
+      <div className="item__bottom">
+        <Link to={`/product/${id}`} className="item__title">{title}</Link>
+        <div className="item__bottom-price">{price} ₸</div>
+      </div>
       {/* item side buttons (add, view) */}
       <div className="item__side">
-        <button className='item__side-plus'><BsPlus /></button>
-        <Link to='/' className='item__side-view'><BsEyeFill /></Link>
+        <button onClick={() => addToCart(product, product.id)} className='item__side-plus'><BsPlus /></button>
+        <Link to={`/product/${id}`} className='item__side-view'><BsEyeFill /></Link>
       </div>
+      
     </div>
   );
 }

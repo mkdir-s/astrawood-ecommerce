@@ -1,6 +1,55 @@
+@import '../../../app.scss';
+
 .loading--section {
   margin: 0 auto;
   padding: 12% 0;
   font-weight: 700;
   font-size: 23px;
+  text-align: center;
+
+  & span {
+    text-align: center;
+    display: block;
+    margin-bottom: 30px;
+  }
+}
+.loading--bar {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.product {
+  padding: 5% 5%;
+
+  &__img {
+    width: 25%;
+    margin-right: 10%;
+  }
+  &__info {
+    max-width: 550px;
+
+    &-title {
+      font-weight: 700;
+      font-size: 20px;
+      opacity: .8;
+      margin-bottom: 20px;
+    }
+    &-descr {
+      max-width: 90%;
+      font-weight: 500;
+      margin-bottom: 40px;
+    }
+    &-price {
+      font-weight: 700;
+      font-size: 24px;
+      margin-bottom: 25px;
+    }
+    &-button {
+      background-color: $accent-color;
+      color: #fff;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 20px;
+    }
+  }
 }

@@ -1,17 +1,23 @@
 import { useContext } from 'react';
 // import product context
 import { ProductContext } from '../../contexts/ProductContext';
+import { CartContext } from '../../contexts/CartContext';
 // import components
 import Header from '../../components/header/Header';
 import ProductItem from '../../components/productItem/ProductItem';
 // import styles
 import './index.scss';
-// import skeleton from Material UI
+// import skeleton, alert and snackbar from Material UI
 import { Skeleton } from '@mui/material';
+import {Alert} from '@mui/material';
+import {Snackbar} from '@mui/material';
 
 function Home() {
   // get products from product context
   const { products } = useContext(ProductContext);
+  // get isAded for notification about saving item in cart
+  const { isAdded } = useContext(CartContext);
+
 
   // if there are products - show them. else show 6 skeletons
   let shownProducts = [];
@@ -21,9 +27,10 @@ function Home() {
     }))
   } else {
     for (let i=0; i < 6; i++) {
-      shownProducts.push(<Skeleton variant="rounded" width={280} height={300} />)
+      shownProducts.push(<Skeleton variant="rounded" width={280} height={300} key={i} />)
     }
   }
+
 
   return (
       <main className="main">
@@ -35,6 +42,13 @@ function Home() {
             return product;
           })}
         </div>
+        {isAdded ? 
+        <Snackbar open={isAdded}>
+        <Alert severity="success" sx={{ width: '100%' }}>
+          Успешно добавлено в корзину!
+        </Alert>
+        </Snackbar> 
+        : null}  
       </main>
     );
 }

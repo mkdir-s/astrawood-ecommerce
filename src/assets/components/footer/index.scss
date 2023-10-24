@@ -49,3 +49,16 @@ $link-color-transition: all .3s;
     font-size: 13px;
   }
 }
+
+@media (max-width: 1150px) {
+  .footer-nav {
+    display: none;
+  }
+  .footer-bottom {
+    flex-direction: column;
+
+    &__left-descr {
+      margin-bottom: 25px;
+    }
+  }
+}

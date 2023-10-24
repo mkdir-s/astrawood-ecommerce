@@ -28,6 +28,10 @@ $link-color-transition: all .3s;
         color: $link-hover-color;
         transition: $link-color-transition;
       }
+      &--cur {
+        font-size: 30px;
+        transition: all .3s;
+      }
     }
   }
   &__sublist {
@@ -36,15 +40,34 @@ $link-color-transition: all .3s;
     opacity: .6;
     display: none;
     &:hover {
-      opacity: .9;
+      opacity: .8;
     }
     &--opened {
       transition: all .3s;
       display: block;
+
+      .aside__list-link--cur {
+        transform: rotate(180deg);
+      }
     }
     &-link {
       display: block;
       padding: 7px 0;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .aside {
+    margin-right: 15px;
+    width: 120px;
+
+    &__title {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    &__list-link {
+      font-size: 14px;
     }
   }
 }
