@@ -17,6 +17,9 @@ body {
   margin: 0 auto;
   padding: 0 15px;
 }
+.main__container {
+  display: flex;
+}
 .df {
   display: flex;
 }
@@ -42,4 +45,10 @@ a {
 button {
   background: none;
   border: none;
+}
+
+@media (max-width: 720px) {
+  .main__container {
+    display: block;
+  }
 }

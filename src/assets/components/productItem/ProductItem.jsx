@@ -22,7 +22,6 @@ function ProductItem({product}) {
         <button onClick={() => addToCart(product, product.id)} className='item__side-plus'><BsPlus /></button>
         <Link to={`/product/${id}`} className='item__side-view'><BsEyeFill /></Link>
       </div>
-      
     </div>
   );
 }

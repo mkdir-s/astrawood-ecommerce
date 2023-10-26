@@ -19,7 +19,7 @@ const App = () => {
     <>
       <Router>
         <Header />
-        <div className="container df">
+        <div className="container main__container">
           <Aside />
           <Routes>
             <Route path='/' element={<Home />}></Route>

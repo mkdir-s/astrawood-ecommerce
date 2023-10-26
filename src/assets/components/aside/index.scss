@@ -57,17 +57,33 @@ $link-color-transition: all .3s;
   }
 }
 
+// @media (max-width: 720px) {
+//   .aside {
+//     margin-right: 15px;
+//     width: 120px;
+
+//     &__title {
+//       font-size: 16px;
+//       margin-bottom: 10px;
+//     }
+//     &__list-link {
+//       font-size: 14px;
+//     }
+//   }
+// }
 @media (max-width: 720px) {
   .aside {
-    margin-right: 15px;
-    width: 120px;
-
-    &__title {
-      font-size: 16px;
-      margin-bottom: 10px;
+    &__list-item {
+      display: flex;
+      flex-direction: column;
     }
     &__list-link {
-      font-size: 14px;
+      font-weight: 500;
+      font-size: 17px;
+    }
+    &__title {
+      font-size: 20px;
+      margin-bottom: 10px;
     }
   }
 }

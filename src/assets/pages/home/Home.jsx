@@ -16,7 +16,7 @@ function Home() {
   // get products from product context
   const { products } = useContext(ProductContext);
   // get isAded for notification about saving item in cart
-  const { isAdded } = useContext(CartContext);
+  const { isAdded, total } = useContext(CartContext);
 
 
   // if there are products - show them. else show 6 skeletons
@@ -46,6 +46,8 @@ function Home() {
         <Snackbar open={isAdded}>
         <Alert severity="success" sx={{ width: '100%' }}>
           Успешно добавлено в корзину!
+          <br />
+          Итоговая цена за все товары - {total.toFixed(2)} ₸
         </Alert>
         </Snackbar> 
         : null}  

@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import './index.scss';
 import {Link} from 'react-router-dom';
 // import down arrow from react icons
-import {BsArrowDown} from 'react-icons/bs';
 
 function Aside() {
 
@@ -34,7 +33,6 @@ function Aside() {
               <Link className='aside__sublist-link' to='/'>Подпункт</Link>
               <Link className='aside__sublist-link' to='/'>Подпункт</Link>
             </ul>
-            <BsArrowDown className="aside__list-link--cur"></BsArrowDown> 
           </li>
         </ul>
       </div>
