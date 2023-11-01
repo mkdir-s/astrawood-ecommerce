@@ -12,6 +12,8 @@ import Footer from './assets/components/footer/Footer';
 // import main styles
 import './reset.scss';
 import './app.scss';
+// import firebase
+import './firebase';
 
 
 const App = () => {

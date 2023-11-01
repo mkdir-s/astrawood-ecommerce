@@ -16,7 +16,6 @@ function Aside() {
       })
     }) 
   })
-  
 
   return (
     <aside className="aside">
