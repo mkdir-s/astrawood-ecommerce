@@ -31,7 +31,18 @@ function CartProvider({ children }) {
       }, 0);
       setItemAmount(amount);
     }
-  }, [cart])
+  }, [cart]);
+
+  // before mount app try to catch data from local storage about cart
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+    setCart(storedCart);
+  }, []);
+
+  // add item in local storage on changing cart
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   // flashing notification about saving item in cart
   const onSaveToCart = () => {

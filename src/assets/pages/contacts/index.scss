@@ -1,0 +1,15 @@
+@import '../../../app.scss';
+
+.contact {
+  padding: 3% 0;
+  width: 100%;
+
+  &__title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    color: $accent-color;
+    border-bottom: 2px solid $accent-color;
+  }
+}

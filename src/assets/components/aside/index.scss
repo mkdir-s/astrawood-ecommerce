@@ -1,3 +1,4 @@
+@import '../../../app.scss';
 $link-hover-color: rgba(0, 0, 0, .6);
 $link-color-transition: all .3s;
 
@@ -5,6 +6,7 @@ $link-color-transition: all .3s;
   padding-top: 40px;
   margin-right: 60px;
   &__title {
+    color: $accent-color;
     font-weight: 600;
     font-size: 20px;
     margin-bottom: 30px;
@@ -20,10 +22,13 @@ $link-color-transition: all .3s;
       border-bottom: 1px solid #333;
       width: 100%;
       text-align: center;
+      display: flex;
+      flex-direction: column;
     }
     &-link {
       padding: 15px 10px;
       display: block;
+      margin-bottom: 5px;
       &:hover {
         color: $link-hover-color;
         transition: $link-color-transition;
@@ -37,7 +42,7 @@ $link-color-transition: all .3s;
   &__sublist {
     transition: all .3s;
     padding-bottom: 10px;
-    opacity: .6;
+    opacity: 0;
     display: none;
     &:hover {
       opacity: .8;

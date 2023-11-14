@@ -104,6 +104,10 @@ $link-color-transition: all .3s;
   padding: 20px 10px 10px;
   font-weight: 500;
 
+  &--active {
+    border-bottom: 1.5px solid #333;
+  }
+
   &:hover {
     color: $link-hover-color;
     transition: .2s all;

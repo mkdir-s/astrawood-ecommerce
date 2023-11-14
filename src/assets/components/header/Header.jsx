@@ -1,13 +1,17 @@
 import { useEffect, useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './index.scss';
 // import cart context
 import { CartContext } from '../../contexts/CartContext';
+import { ProductContext } from '../../contexts/ProductContext';
 // import icons
 import {BsFillCartFill} from 'react-icons/bs';
 
 function Header() {
+  // get total price for cart in header
   const {total} = useContext(CartContext);
+  // get products from product context for filteing products
+  const {products} = useContext(ProductContext);
 
   const [isScrolled, setisScrolled] = useState(false);
 
@@ -31,6 +35,18 @@ function Header() {
       }
     })
   })
+
+  let filteredProducts;
+  const handleSearch = () => {
+    const input = document.body.querySelector('.header__bottom-input');
+    filteredProducts = products.filter(product =>
+      product.title.toLowerCase().includes(input.value)
+    );
+
+
+    console.log(filteredProducts)
+  }
+
   return (
     <>
       <header className={`header`}>
@@ -61,14 +77,38 @@ function Header() {
           <div className="header__bottom-wrapper df jcsb aic">
             <nav className="header__bottom-nav">
               <ul className="header__bottom-list df aic">
-                <li className="header__list-item"><a href="#" className="header__list-link">каталог</a></li>
-                <li className="header__list-item"><a href="#" className="header__list-link">услуги</a></li>
-                <li className="header__list-item"><a href="#" className="header__list-link">доставка</a></li>
-                <li className="header__list-item"><a href="#" className="header__list-link">оплата</a></li>
-                <li className="header__list-item"><a href="#" className="header__list-link">производство</a></li>
-                <li className="header__list-item"><a href="#" className="header__list-link">сертификаты</a></li>
-                <li className="header__list-item"><a href="#" className="header__list-link">гарантии</a></li>
-                <li className="header__list-item"><a href="#" className="header__list-link">контакты</a></li>
+                <li className="header__list-item">
+                  <NavLink 
+                    to='/' 
+                    className={({ isActive }) =>
+                      isActive ? "header__list-link header__list-link--active" : "header__list-link"
+                    }>
+                      главная
+                   </NavLink></li>
+                <li className="header__list-item">
+                  <NavLink 
+                    to='/about' 
+                    className={({ isActive }) =>
+                      isActive ? "header__list-link header__list-link--active" : "header__list-link"
+                    }>
+                      о компании
+                   </NavLink></li>
+                <li className="header__list-item">
+                  <NavLink to='/catalog' className={({ isActive }) =>
+                      isActive ? "header__list-link header__list-link--active" : "header__list-link"
+                    }>каталог</NavLink></li>
+                <li className="header__list-item"><NavLink to='/services' className={({ isActive }) =>
+                      isActive ? "header__list-link header__list-link--active" : "header__list-link"
+                    }>услуги</NavLink></li>
+                <li className="header__list-item"><NavLink to='/how-to-buy' className={({ isActive }) =>
+                      isActive ? "header__list-link header__list-link--active" : "header__list-link"
+                    }>как купить</NavLink></li>
+                <li className="header__list-item"><NavLink to='/delivery' className={({ isActive }) =>
+                      isActive ? "header__list-link header__list-link--active" : "header__list-link"
+                    }>доставка</NavLink></li>
+                <li className="header__list-item"><NavLink to='/contacts' className={({ isActive }) =>
+                      isActive ? "header__list-link header__list-link--active" : "header__list-link"
+                    }>контакты</NavLink></li>
               </ul>
               <div className="header__burger">
                 <span className="header__burger-span header__burger-span--1"></span>
@@ -78,7 +118,7 @@ function Header() {
             </nav>
             <div className="header__bottom-right">
               <input className='header__bottom-input' type="text" placeholder='найти товары' />
-              <button type='submit' className='header__bottom-button'>поиск</button>
+              <Link onClick={() => handleSearch()} to='/' className='header__bottom-button'>поиск</Link>
             </div>
           </div>
         </div>
