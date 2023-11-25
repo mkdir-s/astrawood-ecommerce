@@ -46,6 +46,9 @@ button {
   background: none;
   border: none;
 }
+.overflow-hidden {
+  overflow: hidden;
+}
 
 @media (max-width: 720px) {
   .main__container {

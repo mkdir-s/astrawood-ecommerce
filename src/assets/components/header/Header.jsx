@@ -6,6 +6,7 @@ import { CartContext } from '../../contexts/CartContext';
 import { ProductContext } from '../../contexts/ProductContext';
 // import icons
 import {BsFillCartFill} from 'react-icons/bs';
+import zIndex from '@mui/material/styles/zIndex';
 
 function Header() {
   // get total price for cart in header
@@ -13,7 +14,19 @@ function Header() {
   // get products from product context for filteing products
   const {products} = useContext(ProductContext);
 
-  const [isScrolled, setisScrolled] = useState(false);
+  // const [isScrolled, setisScrolled] = useState(false);
+
+  
+  // // event listener to scrollerd
+  // useEffect(() => {
+  //   window.addEventListener('scroll', () => {
+  //     if (screen.width > 900) {
+  //       window.scrollY > 140 ? setisScrolled(true) : setisScrolled(false);
+  //     } else {
+  //       window.scrollY > 240 ? setisScrolled(true) : setisScrolled(false);
+  //     }
+  //   })
+  // })
 
   // event listener to active menu
   useEffect(() => {
@@ -21,18 +34,8 @@ function Header() {
     const list = document.body.querySelector('.header__bottom-list');
     burger.addEventListener('click', (e) => {
       burger.classList.toggle('header__burger--active');
-      list.classList.toggle('header__bottom-list--active')
-    })
-  })
-  
-  // event listener to scrollerd
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (screen.width > 900) {
-        window.scrollY > 140 ? setisScrolled(true) : setisScrolled(false);
-      } else {
-        window.scrollY > 240 ? setisScrolled(true) : setisScrolled(false);
-      }
+      list.classList.toggle('header__bottom-list--active');
+      document.body.classList.toggle('overflow-hidden');
     })
   })
 
@@ -72,7 +75,8 @@ function Header() {
           </div>
         </div>
       </header>
-      <header className={`${isScrolled ? 'fixed-header' : null} 'header__bottom'`}>
+      {/* `${isScrolled ? 'fixed-header' : null} */}
+      <header className={'header__bottom'}>
         <div className="container">
           <div className="header__bottom-wrapper df jcsb aic">
             <nav className="header__bottom-nav">
